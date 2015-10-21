@@ -15,6 +15,7 @@ def create
                                   :password, :password_confirmation)
         @user = User.new(secure_params)
         if @user.save
+          remember @user
         	flash[:success] = "Welcome to the Twitter App!"    # NEW LINE
            redirect_to @user
         else
